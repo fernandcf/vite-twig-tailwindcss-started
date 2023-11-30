@@ -1,0 +1,22 @@
+{% embed 'layouts/main.twig' %}
+	{% block body %}
+
+		<div class="mt-10">
+			{% set newVariable = {nuevo:'value'} %}
+			{% embed '@component/button.twig' with {type:'button',text:'btn-parent',required:true,class:"text-white bg-red-500",nuevo:'aasas',array:[],obj:{},un: undefined} %}
+				{% block content %}
+					{{newVariable.nuevo}}
+					tag: {{tag}}
+					{% include '@component/button.twig' with {text:'btn-children',class:"font-medium text-base"} %}
+				{% endblock %}
+			{% endembed %}
+			<ul class="bg-slate-100">
+				{% for item in getData('pages.index.list') %}
+					<li>
+						{{item}}
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	{% endblock %}
+{% endembed %}

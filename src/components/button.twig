@@ -1,0 +1,14 @@
+
+{% set attrs = attributes(_context).class({'text-lg':true}) %}
+{% set props = attrs.getProps('text','nuevo','type','aware') %}
+{% set conds = {
+    isLink: props.type == 'link'
+} %}
+{% set tag = conds.isLink ? 'a' : 'button' %}
+
+{{attrs.getV()}}
+
+<{{tag}} {{attrs.overwrite({type: conds.isLink ? null : props.type } ).toString()}}>
+	{{block('content')}}
+	{{props.text}}
+</{{tag}}>

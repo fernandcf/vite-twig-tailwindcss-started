@@ -1,0 +1,6 @@
+{
+  "recommendations": [
+    "rholdos.twig-language-support",
+    "serhatkaya.twig-formatter"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "tailwindCSS.experimental.classRegex": [
+    ["class\\(([^)]*)\\)","(?:'|\"|`)([^']*)(?:'|\"|`)"],
+    ["class\\s*:\\s*['\"`]([^'\"`]*)['\"`]"]
+  ],
+  "emmet.includeLanguages": {
+    "twig": "html"
+  }
+}

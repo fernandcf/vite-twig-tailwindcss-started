@@ -1,0 +1,16 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{{ title }} | {{ appName }}</title>
+    {# <link rel="stylesheet" href="/src/styles/main.css" /> #}
+    <script type="module" src="/src/js/main.js"></script>
+  </head>
+  <body>
+    <h1 class="text-lg">{{ title }}</h1>
+    {% include '@component/nav.twig' %}
+    {{ block("body") }}
+    <img src="/src/assets/logo.png" />
+    <img src="/assets/vite.svg" />
+  </body>
+</html>
