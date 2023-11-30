@@ -1,8 +1,9 @@
 {
-  "name": "vite-template",
+  "name": "vite-twig-tailwindcss-started",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "description":"This is a simple boilerplate project to get started with a web development project using JavaScript, Twig, and Tailwind CSS, powered by Vite.",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

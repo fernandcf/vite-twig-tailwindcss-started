@@ -1,4 +1,4 @@
-<h1 align="center">Vite Twig Tailwindcss Started</h1>
+<h1 align="center">Vite Twig Tailwindcss Started </h1>
 
 This is a simple boilerplate project to get started with a web development project using JavaScript, Twig, and Tailwind CSS, powered by Vite.
 
