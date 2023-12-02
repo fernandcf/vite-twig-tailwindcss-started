@@ -8,12 +8,14 @@ import {
   removeValueBykey,
   merge,
   isObject,
+  escapeHTML,
 } from "./vite.utils";
 import { resolve } from "path";
 import { clsx } from "clsx";
-import { getDataJSON } from "./src/data";
-
-const dataJSON = getDataJSON(resolve(__dirname, "./src/data"));
+import data from "./src/data/all.json";
+import get from "lodash.get";
+import js_beautify from "js-beautify";
+import { JSDOM } from "jsdom";
 
 export default defineConfig({
   plugins: [
@@ -29,6 +31,28 @@ export default defineConfig({
         layout: resolve(__dirname, "./src/layouts"),
       },
       functions: {
+        escapeHTML(str) {
+          return escapeHTML(str);
+        },
+        beautifyCode(codeStr = "", type = "html") {
+          if (!["css", "js", "html"].includes(type))
+            console.error("beautify code: unsupported type");
+
+          const res = js_beautify[type](codeStr);
+          return res;
+        },
+        getOuterHTML(codeStr = "", selector = "[code-sample]") {
+          const frag = JSDOM.fragment(codeStr);
+          const els = [...frag.querySelectorAll(selector)];
+
+          els.forEach((el) => el.removeAttribute("code-sample"));
+
+          const res = {
+            original: [...frag.children].map((el) => el.outerHTML).join(""),
+            copy: els.map((el) => el.outerHTML).join(""),
+          };
+          return res;
+        },
         replace(str = "", searchValue = "", replaceValue = "") {
           return str.replace(searchValue, replaceValue);
         },
@@ -36,22 +60,9 @@ export default defineConfig({
           return str.toLowerCase();
         },
         getData(key) {
-          const arr = key.split(".");
-          const count = arr.length;
-
-          if (count < 2) {
-            return key;
-          }
-
-          const lastI = count - 1;
-          const last = arr[lastI];
-          const key_ = arr.filter((v) => v != last).join(".");
-          const res = dataJSON[key_];
-
-          if (!res) {
-            return key;
-          }
-          return res[last];
+          if (!key) return key;
+          const res = get(data, key);
+          return res;
         },
         assign(...sources) {
           return merge(...sources);
@@ -81,7 +92,7 @@ export default defineConfig({
             }
             return ac;
           }, {});
-        
+
           return {
             keys,
             skip: [],
@@ -139,7 +150,7 @@ export default defineConfig({
             },
           };
         },
-        log(str,...data) {
+        log(str, ...data) {
           console.log(str, ...data);
         },
       },

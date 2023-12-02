@@ -1,3 +1,9 @@
 {
-  "appName": "Mi aplicacion :)"
+  "appName": "Mi aplicacion :)",
+  "pages": {
+    "index": {
+      "title": "Title from pages/index.json",
+      "list": ["one", "two", "tree", "four", "five"]
+    }
+  }
 }

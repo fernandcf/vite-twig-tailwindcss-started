@@ -5,6 +5,27 @@ import * as prettier from "prettier";
 import organizeAttributes from "prettier-plugin-organize-attributes";
 
 /**
+ * Escape html tags
+ * @param {String} code
+ * @returns 
+ */
+export function escapeHTML(code) {
+  if (!code) return code;
+
+  return String(code).replace(
+    /[&<>'"]/g,
+    (tag) =>
+      ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        "'": "&#39;",
+        '"': "&quot;",
+      })[tag]
+  );
+}
+
+/**
  * Replace obfuscated css classes (hash)
  * @param {String} classNames
  */

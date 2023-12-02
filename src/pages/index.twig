@@ -1,12 +1,14 @@
-{% embed 'layouts/main.twig' %}
+{% embed '@layout/main.twig' %}
 	{% block body %}
-
+		{{getOuterHTML('<ul><li code-sample>asas</li></ul>')}}
+		
 		<div class="mt-10">
 			{% set newVariable = {nuevo:'value'} %}
 			{% embed '@component/button.twig' with {type:'button',text:'btn-parent',required:true,class:"text-white bg-red-500",nuevo:'aasas',array:[],obj:{},un: undefined} %}
 				{% block content %}
 					{{newVariable.nuevo}}
-					tag: {{tag}}
+					tag:
+					{{tag}}
 					{% include '@component/button.twig' with {text:'btn-children',class:"font-medium text-base"} %}
 				{% endblock %}
 			{% endembed %}
