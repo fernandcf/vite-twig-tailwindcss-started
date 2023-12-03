@@ -1,7 +1,6 @@
 import { defineConfig } from "vite";
 import vituum from "vituum";
 import twig from "@vituum/vite-plugin-twig";
-import tailwindcss from "@vituum/vite-plugin-tailwindcss";
 import {
   changeTimesAndFormatFiles,
   combineShorthandAlpine,
@@ -19,9 +18,7 @@ import { JSDOM } from "jsdom";
 
 export default defineConfig({
   plugins: [
-    //
     vituum(),
-    tailwindcss(),
     twig({
       root: "./src",
       namespaces: {

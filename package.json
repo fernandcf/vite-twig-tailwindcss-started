@@ -10,15 +10,17 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@vituum/vite-plugin-tailwindcss": "^1.0.0",
     "@vituum/vite-plugin-twig": "^1.0.0",
+    "autoprefixer": "^10.4.16",
     "clsx": "^2.0.0",
     "fast-glob": "^3.3.2",
     "js-beautify": "^1.14.11",
     "jsdom": "^23.0.1",
     "lodash.get": "^4.4.2",
+    "postcss": "^8.4.32",
     "prettier": "3.0.3",
     "prettier-plugin-organize-attributes": "^1.0.0",
+    "tailwindcss": "^3.3.5",
     "utimes": "^5.2.1",
     "vite": "^4.4.5",
     "vituum": "^1.0.0"
