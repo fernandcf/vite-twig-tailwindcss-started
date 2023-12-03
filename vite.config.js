@@ -2,7 +2,6 @@ import { defineConfig } from "vite";
 import vituum from "vituum";
 import twig from "@vituum/vite-plugin-twig";
 import {
-  changeTimesAndFormatFiles,
   combineShorthandAlpine,
   removeValueBykey,
   merge,
@@ -11,10 +10,11 @@ import {
 } from "./vite.utils";
 import { resolve } from "path";
 import { clsx } from "clsx";
-import data from "./src/data/all.json";
 import get from "lodash.get";
 import js_beautify from "js-beautify";
 import { JSDOM } from "jsdom";
+import data from "./src/data/all.json";
+import { changeTimesAndFormatFiles } from "./vite.plugins";
 
 export default defineConfig({
   plugins: [
