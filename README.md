@@ -38,3 +38,6 @@ npm run preview
 ```
 
 Happy coding!
+
+## Libraries
+1. A beautiful Syntax Highlighter. [https://github.com/shikijs/shiki](https://github.com/shikijs/shiki)
