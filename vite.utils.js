@@ -85,6 +85,7 @@ export function removeValueBykey(obj, keys = ["_keys"]) {
     return obj;
   }
 }
+
 /**
  * Combine alpinejs HTML attributes using Shorthand Syntax @see https://alpinejs.dev/directives/on#shorthand-syntax
  * for example convert @click a x.on:click
@@ -109,4 +110,41 @@ export function combineShorthandAlpine(obj) {
     }
   }
   return res;
+}
+
+/**
+ * Generate array of random numbers
+ * @param {Number} length
+ * @param {Number} min
+ * @param {Number} max
+ * @returns {Array}
+ */
+function generateData(length = 0, min = 0, max = 100) {
+  const series = [];
+  const diff = max - min;
+  let i = 0;
+
+  while (i < length) {
+    const value = Math.floor(Math.random() * (diff + 1)) + min;
+    series.push(value);
+    i++;
+  }
+  return series;
+}
+
+/**
+ * Generate array of random dates
+ * @param {Number} length
+ * @param {Date} start
+ * @param {Number} days
+ * @returns {Array}
+ */
+function generateDates(length = 0, start = null, days = 1) {
+  const dates = [];
+  let date = new Date(start || new Date());
+  for (let i = 0; i < length; i++) {
+    date.setDate(date.getDate() + days);
+    dates.push(date.toISOString());
+  }
+  return dates;
 }
