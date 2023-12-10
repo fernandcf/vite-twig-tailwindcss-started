@@ -12,8 +12,10 @@
   "devDependencies": {
     "@vituum/vite-plugin-twig": "^1.0.0",
     "autoprefixer": "^10.4.16",
+    "canvas": "^2.11.2",
     "clsx": "^2.0.0",
     "fast-glob": "^3.3.2",
+    "image-size": "^1.0.2",
     "js-beautify": "^1.14.11",
     "jsdom": "^23.0.1",
     "lodash.get": "^4.4.2",

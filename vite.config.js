@@ -14,7 +14,10 @@ import get from "lodash.get";
 import js_beautify from "js-beautify";
 import { JSDOM } from "jsdom";
 import data from "./src/data/all.json";
-import { changeTimesAndFormatFiles } from "./vite.plugins";
+import {
+  changeTimesAndFormatFiles,
+  replacePlaceholderImages,
+} from "./vite.plugins";
 
 export default defineConfig({
   plugins: [
@@ -153,5 +156,8 @@ export default defineConfig({
       },
     }),
     changeTimesAndFormatFiles(),
+    replacePlaceholderImages({
+      dirInput: "./dist",
+    }),
   ],
 });
