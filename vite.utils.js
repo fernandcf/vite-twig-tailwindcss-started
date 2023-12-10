@@ -119,7 +119,7 @@ export function combineShorthandAlpine(obj) {
  * @param {Number} max
  * @returns {Array}
  */
-function generateData(length = 0, min = 0, max = 100) {
+export function generateData(length = 0, min = 0, max = 100) {
   const series = [];
   const diff = max - min;
   let i = 0;
@@ -139,7 +139,7 @@ function generateData(length = 0, min = 0, max = 100) {
  * @param {Number} days
  * @returns {Array}
  */
-function generateDates(length = 0, start = null, days = 1) {
+export function generateDates(length = 0, start = null, days = 1) {
   const dates = [];
   let date = new Date(start || new Date());
   for (let i = 0; i < length; i++) {
